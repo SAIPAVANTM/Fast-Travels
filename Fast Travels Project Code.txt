@@ -1,0 +1,439 @@
+try:
+    import os
+    import pywhatkit
+    import random 
+    import mysql.connector as mc
+    import pyttsx3 
+    import datetime
+    import time
+    from covid import Covid
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import smtplib, ssl
+
+except:
+    os.system("python -m pip install pywhatkit")
+    os.system("python -m pip install mysql.connector")
+    os.system("python -m pip install pyttsx3")
+    os.system("python -m pip install datetime")
+    os.system("python -m pip install covid")
+    os.system("python -m pip install numpy")
+    os.system("python -m pip install matplotlib")
+    
+engine = pyttsx3.init()
+voices = engine.getProperty("voices")
+
+e = datetime.datetime.now()
+
+def hi(h):
+    engine.say(h)
+    engine.runAndWait()
+print()
+print()
+print("==================================================================================================================================")
+print()
+print("                                                                                      ░▒▓█▄▀▄▀▄▀🚌🚌🚌►─═ F🅰𝕊Ⓣ Tℝ🅰VᗴLⓈ ™═─◄🚌🚌🚌▄▀▄▀▄▀█▓▒░")
+
+print("""
+                                                                                                                                                   𝘿𝙤𝙣𝙚 𝘽𝙮 :
+                                                                                                                     🚌🚌🚌   𝕋υɱu 𝕄🅰ɳ𝕚 𝕊🅰𝕚 𝐏🅰ʋ🅰ɳ
+                                                                                                                     🚌🚌🚌   𝕂𝔸𝕋𝔸𝕂𝔸𝕄 𝕃ⓘ𝕜ⓘ𝕥𝕙 𝐊𝕦𝕞🅰𝐫
+                                                                                                                     🚌🚌🚌   𝕋ℍ𝔼𝔼𝔾𝔼𝕃𝔸 𝕊𝔸𝕋𝕐𝔸 𝕊𝔸𝕀 V🅰ɾⓤɳ Kⓤɱ🅰ɾ
+""")
+print("==================================================================================================================================")
+print()
+
+import mysql.connector as mc
+hname = input("Enter MySQL Host Name (Default value is localhost) : ")
+portno = input("Enter MySQL Port Number (Default value is 3306) : ")
+uname = input("Enter MySQL User Name (Default value is root) : ")
+pwd = input("Enter MySQL Password (Default value is root for user root) : ")
+mycon = mc.connect(host='{}'.format(hname),port='{}'.format(portno),user='{}'.format(uname),\
+                    passwd='{}'.format(pwd), database = "TRAVELS") 
+if mycon.is_connected():
+    print("Sairam, Python is connected to MYSQL Successfully.!!!")
+else:
+    print("Sairam, Please try again!!!")
+print()
+name = input("Please enter your name :")
+hi("Hi"+ name)
+hi("Welcome to TRAVELS BOOKING")
+
+print()
+while True:
+                hi("Please enter your phone number")
+                phone = input("Enter phone number (Ex : +919876898766) : ")
+                if len(phone)!=13:
+                    hi("you have entered wrong number, try again")
+                    print("You have entered wrong phone number !!!")
+                    print("Try Again")
+                else:
+                    break
+while True:
+    print()
+    hi("options:")
+    print("""                                                                                                                                                          𝕺𝖕𝖙𝖎𝖔𝖓𝖘 :
+
+                                                                                        𝙾𝚗𝚎) 𝙱𝚘𝚘𝚔 𝚃𝚒𝚌𝚔𝚎𝚝                                                               𝚃𝚠𝚘) 𝙲𝚑𝚎𝚌𝚔 𝚁𝚞𝚗𝚗𝚒𝚗𝚐 𝚂𝚝𝚊𝚝𝚞𝚜 𝚘𝚏 𝙱𝚞𝚜
+                                                                                        𝚃𝚑𝚛𝚎𝚎) 𝙶𝚒𝚟𝚎 𝙵𝚎𝚎𝚍𝚋𝚊𝚌𝚔                                                       𝙵𝚘𝚞𝚛) 𝙴𝚗𝚝𝚎𝚛 𝚊𝚍𝚖𝚒𝚗 𝙲𝚘𝚗𝚝𝚛𝚘𝚕
+                                                                                        𝙵𝚒𝚟𝚎) 𝚂𝚎𝚎 𝙲𝚘𝚟𝚒𝚍 𝚂𝚝𝚊𝚝𝚜 𝚒𝚗 𝙸𝚗𝚍𝚒𝚊                                      𝚂𝚒𝚡) 𝚂𝚎𝚎 𝚠𝚑𝚊𝚝'𝚜 𝚝𝚑𝚎 𝚙𝚛𝚎𝚜𝚎𝚗𝚝 𝚝𝚒𝚖𝚎 𝚊𝚗𝚍 𝚍𝚊𝚝𝚎
+                                                                                        𝚂𝚎𝚟𝚎𝚗) 𝚂𝚎𝚎 𝚜𝚘𝚖𝚎 𝚟𝚒𝚍𝚎𝚘 𝚘𝚗 𝚢𝚘𝚞𝚝𝚞𝚋𝚎                                  𝙴𝚒𝚐𝚑𝚝) 𝙷𝚎𝚊𝚛 𝚜𝚘𝚖𝚎 𝚝𝚘𝚙𝚒𝚌 𝚘𝚗 𝙶𝚘𝚘𝚐𝚕𝚎
+                                                                                        𝙽𝚒𝚗𝚎) 𝙿𝚕𝚊𝚢 𝙶𝚊𝚖𝚎𝚜                                                               𝚃𝚎𝚗) 𝙴𝚡𝚒𝚝""")
+
+
+    print()
+    hi("please enter your option")
+    input1 = input("Enter your Option :")
+    ran = random.randint(100,1000)
+    print()
+
+    def One():
+        mail = input("Enter your gmail id : ")
+        hi("please choose your route")
+        print("""
+    1. MTC BUS (Valasaravakkam - Guindy)
+    2. MTC BUS (Arakonnam - Mambalam)
+    3. MTC BUS (Nemlicherry - T.Nagar)
+    4. MTC BUS (Alapakkam - VTC Nagar)
+    5. MTC BUS (Red Hills - Valasaravakkam)""")
+        print()
+        hi('enter your option')
+        i = input("Enter your Option :")
+        if i==str(i):
+            print()
+            hi("please proceed by paying the amount")
+            print("Please proceed by paying the amount")
+            print()
+            hi("do you want to pay online or offline")
+            print("One) Pay through online")    
+            print("Two) Pay in Bus")
+            print()
+            hi("enter your option")
+            i1 = input("Enter your option :")
+            if i1.lower()=='one':
+                print()
+                hi("please wait")
+                print("Please wait!!!")
+                while True:
+                    print()
+                    hi("Ticket amount is 20 rupees")
+                    print("Ticket Amount : 20/-")
+                    print()
+                    hi("your card number please")
+                    card = input("Enter Card Number :")
+                    if len(card)!=16:
+                        print()
+                        hi("You have entered wrong card number, try again")
+                        print("You have entered wrong card number !!!")
+                        print("Try Again")
+                    else:
+                        break
+                print()
+                hi("Date of expiry please")
+                date = input("Enter date of expiry:")
+                
+                while True:
+                    print()
+                    hi("cvc please")
+                    cvc = input("Enter CVC number :")
+                    if len(cvc)!=3:
+                        print()
+                        hi("you have entered wrong cvc, try again")
+                        print("You have entered wrong cvc number !!!")
+                        print("Try Again")
+                    else:
+                        break
+                print()
+                hi("do you want to continue?")
+                i2 = input("Do you want to proceed(y/n):")
+                while True:
+                    if i2.lower()=="y":
+                        print()
+                        hi("transaction successfull")
+                        print("Transaction Successful!!!")
+                        hi("ticket has been sent to your respective e-mail")
+                        print(" Check your E-mail to view your ticket")
+                        ticket = "Id: "+str(ran)
+                        money = "paid"
+                        f = open("sai.txt","a")
+                        rec = name +"   "+ phone +"   " +str(ran) +"    "+money+'\n'
+                        f.write(rec)
+                        f.close()
+                        mycursor = mycon.cursor()
+                        query = "INSERT INTO traveldata(Name,Contact, EmailId, Ticketid,Status) VALUES('%s','%s','%s','%s','%s')"%(name, phone, mail, ran,money)
+                        mycursor.execute(query)
+                        mycon.commit()
+                        mycon.close()
+                        port = 465  # For SSL
+                        smtp_server = "smtp.gmail.com"
+                        message = """\
+                        Subject: CONFIRMED TICKET
+
+                        Hello, 
+
+                        Welcome to Fast Travels.
+
+                        Your ticket has been confirmed successfully!!!,
+
+                        Status : Paid
+
+                        Ticket Id: 5712 18429"""
+                        context = ssl.create_default_context()
+                        with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+                            server.login('fasttravelstm@gmail.com', 'fasttravels55')
+                            server.sendmail('fasttravelstm@gmail.com', mail, message)
+                        break
+                    else:
+                        print()
+                        hi('thank you')
+                        print("Thank you")
+                        
+                        break
+            elif i1.lower()=='two':
+                print()
+                hi("Ticket amount is 20 rupees")
+                print("Ticket Amount : 20/-")
+                print()
+                hi('thank you')
+                print("Thank you")
+                print()
+                hi("ticket confirmed, pls pay at bus")
+                print("Your ticket has been confirmed, pls pay the amount at the bus")
+                hi("ticket has been sent to your respective email")
+                print("Check your E-mail to view the ticket")
+                money = "Unpaid"
+                while True :
+                    f = open("travelhistory.txt","a")
+                    rec = name +"   "+ phone +"   " +str(ran) +"    "+money+'\n'
+                    f.write(rec)
+                    f.close()
+                    port = 465  # For SSL
+                    smtp_server = "smtp.gmail.com"
+                    message = """\
+Subject: CONFIRMED TICKET
+
+Hello, 
+Welcome to Fast Travels.
+
+Your ticket has been confirmed successfully!!!,
+Status : UnPaid
+
+icket Id: 5712 18429"""
+                    context = ssl.create_default_context()
+                    with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+                        server.login('fasttravelstm@gmail.com', 'fasttravels55')
+                        server.sendmail('fasttravelstm@gmail.com', mail, message)
+                    mycursor = mycon.cursor()
+                    query = "INSERT INTO traveldata(Name,Contact, EmailId, Ticketid,Status) VALUES('%s','%s','%s','%s','%s')"%(name, phone, mail, ran, money)
+                    mycursor.execute(query)
+                    mycon.commit()
+                    mycon.close()
+                    break
+                
+            else:
+                print()
+                hi("you have entered incorrect")
+                print('You have entered incorrect!!!')
+
+    def Two():
+        hi("This feature is only available to those people who have already booked their tickets")
+        print("This feature is only available to those people who have already booked their tickets")
+        new_name = input("Enter your name as enetered in the last booking : ")
+        new_phone = input("Enter your phone as entered in the last booking : ")
+        if new_name==name and new_phone==phone:
+            hi("here is the running status of buses")
+            print("""
+Running Status of buses : 
+1. MTC BUS (Valasaravakkam - Guindy) - Present - Alapakkam
+    Driver - Ramesh.R , Contact - +919352354732
+        
+2. MTC BUS (Arakonnam - Mambalam) - Present - T.Nagar
+    Driver - Raju.S , Contact - +919867896333
+        
+3. MTC BUS (Nemlicherry - T.Nagar) - Present - SSSIE
+    Driver - Shardur, Contact - +9194786783373
+        
+4. MTC BUS (Alapakkam - VTC Nagar) - Present - Guindy
+    Driver - Venkat, Contact - +9193467578376
+        
+5. MTC BUS (Red Hills - Valasaravakkam) - Present - Mambalam
+    Driver - Dinesh, Contact - +9167867575375""")
+        else:
+            hi("You have entered wrong credentials!!!")
+            print("You have entered wrong credentials!!!")
+    def Three():
+        mail = input("Please enter your Mail Id : ")
+        hi("thanks, please give your valuable feedback")
+        print("Please give your Valuable Feedback !!!")
+        feed = input("Feedback : ")
+        hi("have a nice day")
+        print("Thank you so much, Have a nice day!!!")
+        mycursor = mycon.cursor()
+        f = open("feedback.txt","a")
+        rec = name +"   "+ phone +"   " +feed +"    "+'\n'
+        f.write(rec)
+        f.close()
+        query = "INSERT INTO feedback(Name,Phone,EmailId,Feedback) VALUES('%s','%s','%s','%s')"%(name, phone, mail, feed)
+        mycursor.execute(query)
+        mycon.commit()
+        mycon.close()
+
+    def Four():
+        hi("enter admin name")
+        namee  = input("Enter admin name : ")
+        print()
+        hi("enter admin password")
+        password = int(input("Enter admin password : "))
+        if namee.lower()=="saipavan" and password==1234:
+            hi("welcome admin, showing history")
+            print()
+            print("Welcome Admin, Showing History!!!")
+            hi("here is the traveldata history")
+            print()
+            print(" Here is the Traveldata history : ")
+            mycursor = mycon.cursor()
+            query = "SELECT * FROM traveldata"
+            mycursor.execute(query)
+            data = mycursor.fetchall()
+            print()
+            print(data, end="\n")
+            hi('here is the feedback history')
+            print()
+            print("Here is the feedback history : ")
+            mycursor = mycon.cursor()
+            query = "SELECT * FROM feedback"
+            mycursor.execute(query)
+            data = mycursor.fetchall()
+            print()
+            print(data, end= "\n")
+            mycon.close()
+            Ten()
+        else:
+                hi("Sorry, you have entered wrong username or password!!!")
+                print("Sorry, you have entered wrong username or password!!!")
+
+    def Five():
+        hi("Please wait, data is being loaded!")
+        print("Please wait, data is being loaded!!!")
+        covid = Covid()
+        confirmed = covid.get_total_confirmed_cases()
+        print('Confirmed : ', end =" ")
+        print(confirmed)
+        deaths = covid.get_total_deaths()
+        print('Deaths : ', end =" ")
+        print(deaths)
+
+        x = np.array(['Confirmed', 'Deaths'])
+        y = np.array([confirmed, deaths])
+        plt.bar(x,y)
+        plt.show()
+            
+    def Six():
+        e = datetime.datetime.now()
+        a = "Today's date:  = %s/%s/%s" % (e.day, e.month, e.year)
+        hi(a)
+        print(a)
+        b = "The time is now: = %s:%s:%s" % (e.hour, e.minute, e.second)
+        hi(b)
+        print(b)
+
+    def Seven():
+        try:
+            hi("Please enter the name of the video you want to see")
+            inputtt = input("Please enter the name of the video you want to see/hear : ")
+            hi("playing"+inputtt)
+            print("Playing...")
+            pywhatkit.playonyt(inputtt)
+     
+        except:
+            hi("Oops, network error")
+            print("Network Error Occured")
+
+    def Eight():
+        try:
+            hi("Enter a topic name you want to hear")
+            info = input("Enter a topic name you want to hear : ")
+            print()
+            hi("successfully serached")
+            print("Successfully Searched !!!")
+            print()
+            a = pywhatkit.info(info, lines = 4)
+            hi(a)
+        except:
+            print("An Unknown Error Occured")
+
+    def Random():
+        print("=============================")
+        print("Welcome To Random Number Game!!!")
+        print("=============================")
+        print()
+        print("You have to guess the number between 1 to 10")
+        score = 0
+        while True:
+            ran = random.randint(1,10)
+            guess = int(input("Enter your guess : "))
+            if ran==guess:
+                score+=1
+                print("Correct!!!")
+            else:
+                print("Sorry, wrong guess!!!")
+            contt = input("Wanna Continue?(y/n) : ")
+            if contt.lower()=="n":
+                break
+        print("Your score is : ",score)
+
+    def Nine():
+            hi("Entering Random Number Game")
+            hi("Please Wait")
+            print("Please Wait!!!")
+            print()
+            Random()
+
+    def Ten():
+        while True:
+            hi("Thank you")
+            print("Thank you")
+            print()
+            
+            break
+
+    if input1.lower()=="one":
+        One()
+    elif input1.lower()=="two":
+        Two()
+    elif input1.lower()=="three":
+        Three()
+    elif input1.lower()=="eight":
+        Eight()
+    elif input1.lower()=="four":
+        Four()
+    elif input1.lower()=="five":
+        Five()
+    elif input1.lower()=="six":
+        Six()
+    elif input1.lower()=="seven":
+        Seven()
+    elif input1.lower()=="nine":
+        Nine()
+    elif input1.lower()=="ten":
+        Ten()
+    else:
+        hi("you have entered incorrect")
+        print("You have entered incorrect!!!")
+    hi("Do you want to continue?")
+    con = input("Do you want to continue (y/n) : ")
+    if con=='n':
+        print("""
+88888888888 888    888        d8888     888b        888   888    d8P      Y88b    d88P     .d88888b.          888        888 
+        888         888    888       d88888    8888b      888   888   d8P        Y88b  d88P  d88P"  "Y88b      888        888 
+        888         888    888      d88P888  88888b    888   888  d8P          Y88o88P   888              888       888        888 
+        888         88888888     d88P 888  888Y88b 888   888d88K            Y888P    888              888       888        888 
+        888         888    888    d88P  888  888  Y88b888  8888888b            888        888              888       888        888 
+        888         888    888   d88P   888  888   Y88888   888  Y88b           888        888              888       888        888 
+        888         888    888  d88888888   888    Y8888   888   Y88b          888       Y88b.        .d88P      Y88b.  .d88P 
+        888         888    888 d88P     888  888      Y888   888    Y88b         888          "Y88888P"            "Y88888P"  
+                                                                                                   
+                          <<<<<<< For Using FAST AID >>>>>>> """)
+        print()
+        break
+
